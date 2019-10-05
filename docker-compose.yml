@@ -4,7 +4,7 @@ services:
 
   omedia.reverse-proxy:
     container_name: "omedia.reverse-proxy"
-    image: traefik
+    image: traefik:v1.7
     command: --api --docker # Enables the web UI and tells Traefik to listen to docker
     labels:
       - traefik.frontend.rule=Host:monitor.omedia.localhost
