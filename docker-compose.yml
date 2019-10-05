@@ -25,3 +25,20 @@ services:
   #     - "80"
   #   volumes:
   #     - "./services/example.api/appsrc:/var/www/html"
+
+  # example.angular:
+  #   container_name: "example.angular"
+  #   build:
+  #     context: "./services/example.angular/"
+  #   labels:
+  #     - traefik.live.frontend.rule=Host:angular.example.localhost
+  #     - traefik.live.port=4200
+  #     - traefik.static.frontend.rule=Host:static.angular.example.localhost
+  #     - traefik.static.port=80
+  #   depends_on:
+  #     - "example.reverse-proxy"
+  #   expose:
+  #     - "80"
+  #     - "4200"
+  #   volumes:
+  #     - "./services/example.angular/appsrc:/var/www/html"
