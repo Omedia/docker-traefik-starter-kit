@@ -1,28 +1,27 @@
 version: '3.3'
-
 services:
 
-  omedia.reverse-proxy:
-    container_name: "omedia.reverse-proxy"
+  example.reverse-proxy:
+    container_name: "example.reverse-proxy"
     image: traefik:v1.7
     command: --api --docker # Enables the web UI and tells Traefik to listen to docker
     labels:
-      - traefik.frontend.rule=Host:monitor.omedia.localhost
+      - traefik.frontend.rule=Host:monitor.example.localhost
       - traefik.port=8080 # web ui (enabled by --api)
     ports:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # make traefik listen to docker events
 
-  # omedia.api:
-  #   container_name: "omedia.api"
+  # example.api:
+  #   container_name: "example.api"
   #   build:
-  #     context: "./services/omedia.api/"
+  #     context: "./services/example.api/"
   #   labels:
-  #     - traefik.frontend.rule=Host:api.omedia.localhost
+  #     - traefik.frontend.rule=Host:api.example.localhost
   #   depends_on:
-  #     - "omedia.reverse-proxy"
+  #     - "example.reverse-proxy"
   #   expose:
   #     - "80"
   #   volumes:
-  #     - "./services/omedia.api/appsrc:/var/www/html"
+  #     - "./services/example.api/appsrc:/var/www/html"
