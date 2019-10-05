@@ -1,0 +1,14 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+Dockerfile text eol=lf
+Makefile text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+*.gitmodules text eol=lf
+
