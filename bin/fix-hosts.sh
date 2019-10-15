@@ -9,5 +9,5 @@ command_sed="sed \"s/^$escaped_ip/# $traefik_ip/g\" /etc/hosts"
 command_sed="echo \"\$($command_sed)\" > /etc/hosts"
 command_append="echo -e \"$traefik_ip\t$hosts\" >> /etc/hosts"
 
-echo "$containers" | xargs -I {} docker exec "{}" bash -c "$command_sed"
-echo "$containers" | xargs -I {} docker exec "{}" bash -c "$command_append"
+echo "$containers" | xargs -I {} docker exec --user root "{}" bash -c "$command_sed"
+echo "$containers" | xargs -I {} docker exec --user root "{}" bash -c "$command_append"
